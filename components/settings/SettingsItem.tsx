@@ -11,10 +11,11 @@ interface SettingsItemProps {
 }
 
 export function SettingsItem({ icon, label, subtitle, rightElement, onClick, danger }: SettingsItemProps) {
+  const Tag = rightElement ? 'div' : 'button'
   return (
-    <button
+    <Tag
       onClick={onClick}
-      className="w-full flex items-center gap-3 px-4 py-3.5 hover:bg-[#1A2540] transition-colors text-left"
+      className="w-full flex items-center gap-3 px-4 py-3.5 hover:bg-[#1A2540] transition-colors text-left cursor-pointer"
     >
       <div className="w-9 h-9 rounded-xl bg-[#1A2540] flex items-center justify-center flex-shrink-0">
         {icon}
@@ -24,6 +25,6 @@ export function SettingsItem({ icon, label, subtitle, rightElement, onClick, dan
         {subtitle && <div className="text-xs text-gray-500 mt-0.5">{subtitle}</div>}
       </div>
       {rightElement || <ChevronRight className="w-4 h-4 text-gray-600" />}
-    </button>
+    </Tag>
   )
 }
